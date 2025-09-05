@@ -1,5 +1,4 @@
 #include "../includes/challenge_word.h"
-#include "../includes/main.h"
 #include "../includes/guess_buffer.h"
 #include "../includes/game.h"
 
