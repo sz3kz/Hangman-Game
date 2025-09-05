@@ -13,16 +13,15 @@ int main(void){
 
 	int bad_guess_count = 0;
 	while ( !check_win(challenge_word, guess_buffer) && !check_loss(bad_guess_count) ){
-		printf("Buffer: %s\n", guess_buffer);
-		printf("Used Bad Guesses: %d/%d\n",bad_guess_count, MAX_BAD_GUESSES_COUNT);
+		print_status(guess_buffer, bad_guess_count);
 		guess = take_guess(GUESS_INPUT_PROMPT);
 		discard_rest_of_input();
 		if (check_char_inside_challenge_word(guess, challenge_word)){
-			puts("Incorrect!");
+			printf("\'%c\' -> Correct!\n",guess);
 			unlock_guest_buffer(guess, guess_buffer, challenge_word);
 		}
 		else {
-			printf("\'%c\' is a bad guess...\n",guess);
+			printf("\'%c\' -> Incorrect!\n",guess);
 			++bad_guess_count;
 		}
 	}
