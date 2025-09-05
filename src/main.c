@@ -3,7 +3,6 @@
 #include "../includes/guess_buffer.h"
 #include "../includes/game.h"
 
-#include <stdio.h>
 int main(void){
 	char * challenge_word = ask_for_challenge_word(WORD_INPUT_PROMPT);
 	int challenge_length = get_challenge_word_length(challenge_word);
@@ -18,11 +17,9 @@ int main(void){
 		guess = take_guess(GUESS_INPUT_PROMPT);
 		discard_rest_of_input();
 		if (check_char_inside_challenge_word(guess, challenge_word)){
-			printf("\'%c\' -> Correct!\n",guess);
 			unlock_guest_buffer(guess, guess_buffer, challenge_word);
 		}
 		else {
-			printf("\'%c\' -> Incorrect!\n",guess);
 			++bad_guess_count;
 		}
 	}
