@@ -1,4 +1,4 @@
-#include "../includes/guess_buffer.h"
+#include "../../includes/guess_buffer.h"
 
 char * create_guessing_buffer(int length){
 	char * buffer = (char *) malloc(sizeof(char) * (length+1));
