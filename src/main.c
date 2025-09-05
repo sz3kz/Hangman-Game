@@ -11,6 +11,7 @@ int main(void){
 	char * guess_buffer = create_guess_buffer(challenge_length);
 	while (!check_win(challenge_word, guess_buffer) ){
 		char guess = take_guess(GUESS_INPUT_PROMPT);
+		discard_rest_of_input();
 		if (check_char_inside_challenge_word(guess, challenge_word)){
 			printf("\'%c\' is a good guess!\n",guess);
 		}
