@@ -1,10 +1,8 @@
-#include "../includes/print_hello_world.h"
 #include "../includes/challenge_word.h"
 #include "../includes/main.h"
 #include "../includes/guess_buffer.h"
 
 int main(void){
-	print_hello_world();
 	char * challenge_word = ask_for_challenge_word(WORD_INPUT_PROMPT);
 	int challenge_length = get_challenge_word_length(challenge_word);
 	printf("Challenge word(%d): \"%s\".\n",challenge_length,challenge_word);
