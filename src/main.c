@@ -13,6 +13,7 @@ int main(void){
 	int bad_guess_count = 0;
 	while ( !check_win(challenge_word, guess_buffer) && !check_loss(bad_guess_count) ){
 		clear_terminal_window();
+		show_hangman(bad_guess_count);
 		print_status(guess_buffer, bad_guess_count);
 		guess = take_guess(GUESS_INPUT_PROMPT);
 		discard_rest_of_input();
