@@ -1,6 +1,6 @@
 #include "../../includes/game.h"
 
-bool check_loss(int bad_guess_count){
-	if (bad_guess_count > MAX_BAD_GUESSES_COUNT) return true;
+bool check_loss(int loss_count){
+	if (loss_count > MAX_BAD_GUESS_COUNT) return true;
 	return false;
 }
