@@ -1,7 +1,7 @@
 #include "../includes/print_hello_world.h"
 #include "../includes/get-word.h"
 #include "../includes/main.h"
-#include "../includes/guessing-buffer.h"
+#include "../includes/guess_buffer.h"
 
 int main(void){
 	print_hello_world();
