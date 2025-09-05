@@ -8,5 +8,6 @@ bool check_win(const char * challenge_word, const char * guess_buffer);
 void discard_rest_of_input(void);
 bool check_loss(int bad_guess_count);
 void print_status(const char * guess_buffer, int bad_guess_count);
+void clear_terminal_window(void);
 
 #endif
