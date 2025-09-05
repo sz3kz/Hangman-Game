@@ -24,6 +24,14 @@ int main(void){
 			++bad_guess_count;
 		}
 	}
+	clear_terminal_window();
+	show_hangman(bad_guess_count);
+	if ( check_win(challenge_word, guess_buffer) ){
+		puts("Congratulations, you have won!");
+	}
+	else {
+		puts("Sorry, you lost!");
+	}
 
 	free(guess_buffer);
 	free(challenge_word);
