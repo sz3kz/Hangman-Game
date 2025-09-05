@@ -10,16 +10,20 @@ int main(void){
 
 	char * guess_buffer = create_guess_buffer(challenge_length);
 	char guess;
-	while ( !check_win(challenge_word, guess_buffer) ){
+
+	int bad_guess_count = 0;
+	while ( !check_win(challenge_word, guess_buffer) && !check_loss(bad_guess_count) ){
 		printf("Buffer: %s\n", guess_buffer);
+		printf("Used Bad Guesses: %d/%d\n",bad_guess_count, MAX_BAD_GUESSES_COUNT);
 		guess = take_guess(GUESS_INPUT_PROMPT);
 		discard_rest_of_input();
 		if (check_char_inside_challenge_word(guess, challenge_word)){
-			printf("\'%c\' is a good guess!\n",guess);
+			puts("Incorrect!");
 			unlock_guest_buffer(guess, guess_buffer, challenge_word);
 		}
 		else {
 			printf("\'%c\' is a bad guess...\n",guess);
+			++bad_guess_count;
 		}
 	}
 
