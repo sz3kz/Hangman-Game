@@ -8,6 +8,7 @@ int main(void){
 	printf("Challenge word(%d): \"%s\".\n",challenge_length,challenge_word);
 	char * guess_buffer = create_guess_buffer(challenge_length);
 	printf("Guess buffer: \"%s\".\n",guess_buffer);
+	free(guess_buffer);
 	free(challenge_word);
 	return 0;
 }
