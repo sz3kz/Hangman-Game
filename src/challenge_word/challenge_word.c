@@ -1,6 +1,6 @@
-#include "../includes/get-word.h"
+#include "../../includes/challenge_word.h"
 
-char * get_word(const char * prompt){
+char * ask_for_challenge_word(const char * prompt){
 	if (prompt == NULL){
 		return NULL;
 	}
@@ -15,16 +15,4 @@ char * get_word(const char * prompt){
 	}
 	*(user_word + position) = '\0';
 	return user_word;
-	}
-
-int get_character_count(const char * string_pointer){
-	if (string_pointer == NULL){
-		return GET_WORD_FAILURE;
-	}
-	for (int length = 0; length <= WORD_MAX_LENGTH; ++length){
-		if (string_pointer[length] == '\0'){
-			return length;
-		}
-	}
-	return GET_WORD_FAILURE;
 }
