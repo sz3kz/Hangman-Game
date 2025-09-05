@@ -3,6 +3,7 @@
 #include "../includes/game.h"
 
 int main(void){
+	clear_terminal_window();
 	char * challenge_word = ask_for_challenge_word(WORD_INPUT_PROMPT);
 	int challenge_length = get_challenge_word_length(challenge_word);
 
