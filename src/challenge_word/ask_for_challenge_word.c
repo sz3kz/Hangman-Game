@@ -8,9 +8,9 @@ char * ask_for_challenge_word(const char * prompt){
 	printf("%s",prompt);
 	char character;
 	int position;
-	for (character = getchar(), position = 0; 
+	for (character = (char) getchar(), position = 0;
 			character != '\n' && position < WORD_MAX_LENGTH; 
-			++position, character = getchar()){
+			++position, character = (char) getchar()){
 		*(user_word + position) = character;
 	}
 	*(user_word + position) = '\0';

@@ -11,7 +11,7 @@ void show_hangman(int bad_guess_count){
 		printf("Something went wrong when opening: \"%s\"\n", path);
 		return;
 	}
-	for ( char character = fgetc(fileptr); character != EOF; character = fgetc(fileptr)){
+	for ( char character = (char) fgetc(fileptr); character != EOF; character = (char) fgetc(fileptr)){
 		putchar(character);
 	}
 }

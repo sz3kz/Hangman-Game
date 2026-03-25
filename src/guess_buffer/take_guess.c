@@ -2,5 +2,5 @@
 
 char take_guess(const char * prompt){
 	printf("%s",prompt);
-	return getchar();
+	return (char) getchar();
 }
