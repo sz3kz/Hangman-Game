@@ -12,3 +12,9 @@ cmake ..
 make
 ./game
 ```
+## Run Tests
+Done after compilation ofc.
+### Valgrind
+```bash
+ctest -R game --output-on-failure
+```
