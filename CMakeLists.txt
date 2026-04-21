@@ -1,56 +1,58 @@
+# project name:         Hangman-Game
+# languages used:       CXX
+#   * CXX
+#   * CUDA
+# package version:      1.0
+# c++ standard:         23
+#   * 17
+# executable target:    game
+# header directory:     include
+# list of source files: <SRC_FILES>
+
 cmake_minimum_required(VERSION 3.15...4.1)
 
-project(Hangman-Game
-  VERSION 1.0
-  LANGUAGES C
-)
+set(CMAKE_CXX_STANDARD 23)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
 
-# set C++17 as standard and enforce it as a requirement
-set(CMAKE_C_STANDARD 17)
-set(CMAKE_C_STANDARD_REQUIRED ON)
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/external/dotfiles/CPP")
+include(add_valgrind_test)
+include(add_cpp_compile_options)
+include(add_clang_tidy_options)
+
+project(
+  Hangman-Game
+  VERSION 1.0
+  LANGUAGES CXX
+)
 
 add_executable(game)
 
-# disable compiler extensions
-set(CMAKE_C_EXTENSIONS OFF)
+add_cpp_compile_options(game)
+add_clang_tidy_options(game)
+include(CTest)
+if(BUILD_TESTING)
+  find_program(MEMCHECK valgrind)
+  add_valgrind_test(game)
+  message(STATUS "MEMCHECK_OPTIONS(outside): ${MEMCHECK_OPTIONS}")
+endif()
 
-# set compiler options
-target_compile_options(game PRIVATE
-    # 1. Flags for pure .cpp files (direct to Clang)
-    $<$<COMPILE_LANGUAGE:C>:
-        -Wall
-        -Wextra
-        -Werror
-        -Wconversion
-        -Wsign-conversion
-        -Wpedantic
-	-Wno-error=pedantic
-    >
-)
-# set up clang-tidy
-set(CMAKE_CXX_CLANG_TIDY clang-tidy;
-    -header-filter=./include/;
-    -checks=*;
-    -warnings-as-errors=*;)
-
-# point compiler to the .h header files
 target_include_directories(game PRIVATE
-    ${CMAKE_CURRENT_SOURCE_DIR}/include
+  ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
-
 
 target_sources(game PRIVATE
-    src/main.c
-    src/challenge_word/ask_for_challenge_word.c
-    src/challenge_word/check_char_inside_challenge_word.c
-    src/challenge_word/get_challenge_word_length.c
-    src/game/check_loss.c
-    src/game/check_win.c
-    src/game/clear_screen.c
-    src/game/discard_rest_of_input.c
-    src/game/print_status.c
-    src/game/show_hangman.c
-    src/guess_buffer/create_guess_buffer.c
-    src/guess_buffer/take_guess.c
-    src/guess_buffer/unlock_guest_buffer.c
+    src/main.cpp
+    src/challenge_word/ask_for_challenge_word.cpp
+    src/challenge_word/check_char_inside_challenge_word.cpp
+    src/challenge_word/get_challenge_word_length.cpp
+    src/game/check_loss.cpp
+    src/game/check_win.cpp
+    src/game/clear_screen.cpp
+    src/game/discard_rest_of_input.cpp
+    src/game/print_status.cpp
+    src/game/show_hangman.cpp
+    src/guess_buffer/create_guess_buffer.cpp
+    src/guess_buffer/take_guess.cpp
+    src/guess_buffer/unlock_guest_buffer.cpp
 )
