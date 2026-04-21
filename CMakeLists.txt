@@ -34,7 +34,6 @@ include(CTest)
 if(BUILD_TESTING)
   find_program(MEMCHECK valgrind)
   add_valgrind_test(game)
-  message(STATUS "MEMCHECK_OPTIONS(outside): ${MEMCHECK_OPTIONS}")
 endif()
 
 target_include_directories(game PRIVATE
