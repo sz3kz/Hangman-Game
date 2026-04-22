@@ -4,6 +4,7 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include <string.h>
+#include <memory>
 #define MAX_BAD_GUESS_COUNT 5
 #define HANGMAN_FILENAME_FORMAT "hangman-%d.txt"
 #define HANGMAN_FILENAME_MAX_LENGTH 100
