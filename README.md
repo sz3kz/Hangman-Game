@@ -5,7 +5,7 @@ While the files are .cpp, the project was primarily done using C!
 ```bash
 git clone git@github.com:sz3kz/Hangman-Game.git
 cd Hangman-Game/
-make cmake-init
+make dotfiles-activate
 mkdir build
 cd build/
 cmake ..
