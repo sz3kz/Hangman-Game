@@ -5,9 +5,6 @@ SERVER_MAKEFILE_DIRECTORY=external/dotfiles/CPP/
 dotfiles-activate:
 	git submodule update --init
 
-dotfiles-init:
-	cd ${SERVER_MAKEFILE_DIRECTORY} && make dotfiles-init
-
 dotfiles-update:
 	cd ${SERVER_MAKEFILE_DIRECTORY} && make dotfiles-update
 
