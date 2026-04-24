@@ -1,6 +1,14 @@
 #include "../../includes/game.h"
 
-using FILE_RAII_POINTER = std::unique_ptr<FILE,decltype(&fclose)>;
+struct FileCloser{
+  void operator()(FILE * fp) const{
+    if (fp){
+      fclose(fp);
+    }
+  }
+};
+
+using FILE_RAII_POINTER = std::unique_ptr<FILE,FileCloser>;
 
 void show_hangman(int bad_guess_count){
 	char temp_path[HANGMAN_FILENAME_MAX_LENGTH] = {0};
@@ -9,7 +17,7 @@ void show_hangman(int bad_guess_count){
 	sprintf(temp_path, "%s%s", HANGMAN_PATH, HANGMAN_FILENAME_FORMAT);
 	sprintf(path, temp_path, bad_guess_count);
   //FILE * fileptr = fopen(path, "r");
-  FILE_RAII_POINTER fileptr = FILE_RAII_POINTER(fopen(path, "r"), &fclose);
+  FILE_RAII_POINTER fileptr = FILE_RAII_POINTER(fopen(path, "r"));
 	if (fileptr == NULL){
 		printf("Something went wrong when opening: \"%s\"\n", path);
 		return;
