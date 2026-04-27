@@ -15,10 +15,11 @@ set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/external/dotfiles/CPP")
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/external/boilerplate/CPP")
 include(add_valgrind_test)
 include(add_cpp_compile_options)
-include(add_clang_tidy_options)
 
 project(
   Hangman-Game

@@ -1,5 +1,5 @@
 {
-  description = "Hangman Terminal Game";
+  description = "Boilerplate Nix Flake";
 
   # Define dependencies (like the unstable version of nix packages)
   inputs = {          
@@ -23,14 +23,18 @@
       devShells = forAllSystems (system:
         let 
           pkgs = nixpkgsFor.${system}; 
+          llvm = pkgs.llvmPackages_18;
         in {
           default = nixpkgsFor.${system}.mkShell {
-            nativeBuildInputs = with nixpkgsFor.${system}; [
-              clang
-              gnumake
-              cmake
-              valgrind
-
+            nativeBuildInputs = [
+              llvm.clang-tools    # Needed to expose system headers to clang-tidy
+            ];
+            buildInputs = [
+              llvm.clang  # clang, clang-tidy, clang-format
+              pkgs.cmake
+              pkgs.gnumake
+              pkgs.pre-commit
+              pkgs.valgrind
             ];
             shellHook = ''
               export CC=clang
@@ -38,7 +42,6 @@
             '';
           };
       });
-
       packages = forAllSystems (system: {
         default = nixpkgsFor.${system}.stdenv.mkDerivation {
           src = ./.;
