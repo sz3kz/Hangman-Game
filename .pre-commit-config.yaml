@@ -12,4 +12,4 @@ repos:
     hooks:
       - id: clang-tidy
         stages: [pre-push]
-        args: ["-p=./build/"]
+        args: ["-p=build", "--fix-errors", "--format-style=file"]

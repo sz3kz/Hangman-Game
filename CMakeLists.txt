@@ -30,7 +30,6 @@ project(
 add_executable(game)
 
 add_cpp_compile_options(game)
-add_clang_tidy_options(game)
 include(CTest)
 if(BUILD_TESTING)
   find_program(MEMCHECK valgrind)

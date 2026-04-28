@@ -1,6 +1,9 @@
+#include <print>
+
 #include "../../includes/guess_buffer.h"
 
-char take_guess(const char * prompt){
-	printf("%s",prompt);
-	return (char) getchar();
+auto takeGuess(const char* prompt) -> char
+{
+  std::print("{}", prompt);
+  return (char)getchar();
 }
