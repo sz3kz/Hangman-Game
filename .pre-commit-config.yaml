@@ -12,4 +12,12 @@ repos:
     hooks:
       - id: clang-tidy
         stages: [pre-push]
-        args: ["-p=build", "--fix-errors", "--format-style=file"]
+        args: ["-p=./build/"]
+      - id: cppcheck
+        stages: [pre-commit]
+        args: [
+          "--enable=all",
+          "--inline-suppr",
+          "--suppress=missingIncludeSystem",
+          "--suppress=unmatchedSuppression"
+        ]

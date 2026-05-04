@@ -35,6 +35,7 @@
               pkgs.gnumake
               pkgs.pre-commit
               pkgs.valgrind
+              pkgs.cppcheck
             ];
             shellHook = ''
               export CC=clang
