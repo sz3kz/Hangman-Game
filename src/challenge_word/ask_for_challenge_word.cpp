@@ -1,6 +1,6 @@
 #include "../../includes/challenge_word.h"
 
-char *ask_for_challenge_word(const char *prompt)
+char *askForChallengeWord(const char *prompt)
 {
   if (prompt == NULL)
   {

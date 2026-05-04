@@ -5,10 +5,10 @@
 int main(void)
 {
   clear_terminal_window();
-  char* challenge_word = ask_for_challenge_word(WORD_INPUT_PROMPT);
-  int challenge_length = get_challenge_word_length(challenge_word);
+  char* challenge_word = askForChallengeWord(WORD_INPUT_PROMPT);
+  int challenge_length = getChallengeWordLength(challenge_word);
 
-  char* guess_buffer = create_guess_buffer(challenge_length);
+  char* guess_buffer = createGuessBuffer(challenge_length);
   char guess;
 
   int bad_guess_count = 0;
@@ -18,11 +18,11 @@ int main(void)
     clear_terminal_window();
     show_hangman(bad_guess_count);
     print_status(guess_buffer, bad_guess_count);
-    guess = take_guess(GUESS_INPUT_PROMPT);
+    guess = takeGuess(GUESS_INPUT_PROMPT);
     discard_rest_of_input();
-    if (check_char_inside_challenge_word(guess, challenge_word))
+    if (checkCharInsideChallengeWord(guess, challenge_word))
     {
-      unlock_guest_buffer(guess, guess_buffer, challenge_word);
+      unlockGuessBuffer(guess, guess_buffer, challenge_word);
     }
     else
     {

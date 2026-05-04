@@ -1,6 +1,6 @@
 #include "../../includes/challenge_word.h"
 
-bool check_char_inside_challenge_word(char character,
+bool checkCharInsideChallengeWord(char character,
                                       const char* challenge_word)
 {
   for (int position = 0; challenge_word[position] != '\0'; ++position)

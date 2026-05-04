@@ -1,6 +1,6 @@
 #include "../../includes/guess_buffer.h"
 
-char *create_guess_buffer(int length)
+char *createGuessBuffer(int length)
 {
   char *buffer = (char *)malloc(sizeof(char) * (unsigned long)(length + 1));
   int position;

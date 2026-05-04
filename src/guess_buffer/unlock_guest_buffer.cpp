@@ -1,6 +1,6 @@
 #include "../../includes/guess_buffer.h"
 
-void unlockGuestBuffer(char character, char* guest_buffer,
+void unlockGuessBuffer(char character, char* guest_buffer,
                        const char* challenge_word)
 {
   int position = 0;
