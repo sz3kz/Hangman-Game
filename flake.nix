@@ -33,6 +33,7 @@
               llvm.clang  # clang, clang-tidy, clang-format
               pkgs.cmake
               pkgs.gnumake
+              pkgs.ninja
               pkgs.pre-commit
               pkgs.valgrind
               pkgs.cppcheck
