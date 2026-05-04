@@ -17,7 +17,11 @@ repos:
         stages: [pre-commit]
         args: [
           "--enable=all",
+          "-Iworkspace/include",
           "--inline-suppr",
           "--suppress=missingIncludeSystem",
-          "--suppress=unmatchedSuppression"
+          "--suppress=unmatchedSuppression",
+          "--suppressions-list=cppcheck-suppresions.txt"
         ]
+
+

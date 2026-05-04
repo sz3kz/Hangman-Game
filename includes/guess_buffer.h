@@ -6,7 +6,7 @@
 #include <stdlib.h>
 auto createGuessBuffer(int length) -> char*;
 auto takeGuess(const char* prompt) -> char;
-void unlockGuessBuffer(char character, char* guest_buffer,
+void unlockGuessBuffer(char character, char* guess_buffer,
                        const char* challenge_word);
 
 #endif
