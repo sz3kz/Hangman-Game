@@ -8,7 +8,7 @@ git clone git@github.com:sz3kz/Hangman-Game.git
 cd Hangman-Game/
 
 # Activate CMake configuration custom git submodule
-make dotfiles-activate
+make core-activate
 
 # Build the project
 mkdir build
